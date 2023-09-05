@@ -40,9 +40,9 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: "fe84ab3350c7f6775230baf26c998e3b10d875a5"
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"maximi93_PracticoSonarCube" /o:"maximi93" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"maximi93_PracticoSonarCube" /o:"maximi93" /d:sonar.token="fe84ab3350c7f6775230baf26c998e3b10d875a5" /d:sonar.host.url="https://sonarcloud.io"
           dotnet clean && dotnet build
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="fe84ab3350c7f6775230baf26c998e3b10d875a5"
